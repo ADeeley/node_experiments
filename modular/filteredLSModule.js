@@ -5,10 +5,7 @@ function lsFiles(dir, fileExt, callback) {
     const ext = '.' + fileExt;
 
     fs.readdir(dir, (err, files) => {
-            if (err) {
-                console.error(err)
-                callback(err);
-            }
+            if (err) return callback(err);
             let filteredFiles = [];
             files.forEach((file) => {
                 if (path.extname(file) === ext)
